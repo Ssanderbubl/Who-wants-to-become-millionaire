@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.newGameButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.stopGameButton = new System.Windows.Forms.Button();
@@ -50,7 +51,7 @@
             this.addNewQuestionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FriendImage = new System.Windows.Forms.PictureBox();
             this.FriendAnswerLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -63,6 +64,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.MuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CorrectAnswerPicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -72,7 +74,7 @@
             // 
             // newGameButton
             // 
-            this.newGameButton.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources._new;
+            this.newGameButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newGameButton.BackgroundImage")));
             this.newGameButton.Location = new System.Drawing.Point(0, 24);
             this.newGameButton.Name = "newGameButton";
             this.newGameButton.Size = new System.Drawing.Size(65, 40);
@@ -82,7 +84,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources.Exit;
+            this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
             this.exitButton.Location = new System.Drawing.Point(62, 24);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(65, 40);
@@ -106,7 +108,7 @@
             // 
             // button50_50
             // 
-            this.button50_50.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources._1;
+            this.button50_50.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button50_50.BackgroundImage")));
             this.button50_50.Location = new System.Drawing.Point(15, 3);
             this.button50_50.Name = "button50_50";
             this.button50_50.Size = new System.Drawing.Size(58, 37);
@@ -116,7 +118,7 @@
             // 
             // callFriendButton
             // 
-            this.callFriendButton.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources._2;
+            this.callFriendButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("callFriendButton.BackgroundImage")));
             this.callFriendButton.Location = new System.Drawing.Point(79, 3);
             this.callFriendButton.Name = "callFriendButton";
             this.callFriendButton.Size = new System.Drawing.Size(58, 37);
@@ -126,7 +128,7 @@
             // 
             // audienceHelpButton
             // 
-            this.audienceHelpButton.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources._3;
+            this.audienceHelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("audienceHelpButton.BackgroundImage")));
             this.audienceHelpButton.Location = new System.Drawing.Point(143, 3);
             this.audienceHelpButton.Name = "audienceHelpButton";
             this.audienceHelpButton.Size = new System.Drawing.Size(50, 37);
@@ -218,7 +220,7 @@
             // 
             // CorrectAnswerPicture
             // 
-            this.CorrectAnswerPicture.Image = global::Who_want_to_become_millionaire.Properties.Resources.Безымянный;
+            this.CorrectAnswerPicture.Image = ((System.Drawing.Image)(resources.GetObject("CorrectAnswerPicture.Image")));
             this.CorrectAnswerPicture.InitialImage = global::Who_want_to_become_millionaire.Properties.Resources.Безымянный;
             this.CorrectAnswerPicture.Location = new System.Drawing.Point(484, 193);
             this.CorrectAnswerPicture.Name = "CorrectAnswerPicture";
@@ -245,7 +247,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewGameToolStripMenuItem,
             this.администраторскийРежимToolStripMenuItem,
-            this.оПрограммеToolStripMenuItem});
+            this.InfoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(793, 24);
@@ -256,6 +258,7 @@
             // 
             this.NewGameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новаяИграToolStripMenuItem,
+            this.MuteToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem";
             this.NewGameToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -264,14 +267,14 @@
             // новаяИграToolStripMenuItem
             // 
             this.новаяИграToolStripMenuItem.Name = "новаяИграToolStripMenuItem";
-            this.новаяИграToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.новаяИграToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.новаяИграToolStripMenuItem.Text = "Новая игра";
             this.новаяИграToolStripMenuItem.Click += new System.EventHandler(this.newGameButton_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.ExitToolStripMenuItem.Text = "Выйти";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.exitButton_Click);
             // 
@@ -306,15 +309,16 @@
             this.deleteQuestionToolStripMenuItem.Text = "Удалить вопрос";
             this.deleteQuestionToolStripMenuItem.Click += new System.EventHandler(this.deleteQuestionToolStripMenuItem_Click);
             // 
-            // оПрограммеToolStripMenuItem
+            // InfoToolStripMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem";
+            this.InfoToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.InfoToolStripMenuItem.Text = "О программе";
+            this.InfoToolStripMenuItem.Click += new System.EventHandler(this.InfoToolStripMenuItem_Click);
             // 
             // FriendImage
             // 
-            this.FriendImage.Image = global::Who_want_to_become_millionaire.Properties.Resources.zvonok;
+            this.FriendImage.Image = ((System.Drawing.Image)(resources.GetObject("FriendImage.Image")));
             this.FriendImage.Location = new System.Drawing.Point(0, 111);
             this.FriendImage.Name = "FriendImage";
             this.FriendImage.Size = new System.Drawing.Size(140, 114);
@@ -440,10 +444,17 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "А:";
             // 
+            // MuteToolStripMenuItem
+            // 
+            this.MuteToolStripMenuItem.Name = "MuteToolStripMenuItem";
+            this.MuteToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.MuteToolStripMenuItem.Text = "Выключить/включить звук";
+            this.MuteToolStripMenuItem.Click += new System.EventHandler(this.MuteToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = global::Who_want_to_become_millionaire.Properties.Resources.mil;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(793, 594);
             this.Controls.Add(this.AudienceHelpBox);
             this.Controls.Add(this.panel1);
@@ -515,7 +526,8 @@
         private System.Windows.Forms.ToolStripMenuItem NewGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem новаяИграToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MuteToolStripMenuItem;
     }
 }
 

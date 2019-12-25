@@ -24,6 +24,8 @@ namespace Who_want_to_become_millionaire
         bool isCalledFriend = false;
         bool isAudienceHelp = false;
         List<Label> labels;
+        bool isMute = false;
+        SoundPlayer player;
         public Form1()
         {
             InitializeComponent();
@@ -39,7 +41,6 @@ namespace Who_want_to_become_millionaire
             stream.Close();
             currentQuestion = 0;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -49,8 +50,11 @@ namespace Who_want_to_become_millionaire
                 this.Height = 633;
                 this.Width = 809;
                 CreateListOfAward();
-                SoundPlayer player = new SoundPlayer(@"sound\begin.wav");
-                player.Play();
+                if(!isMute)
+                {
+                    player = new SoundPlayer(@"sound\begin.wav");
+                    player.Play();
+                }
                 ChangeAward();
                 SetQuestion();
             }
@@ -199,27 +203,37 @@ namespace Who_want_to_become_millionaire
             }
             if (button.Text.Contains(CorrectAnswer))
             {
-                SoundPlayer player = new SoundPlayer(@"sound\true.wav");
-                player.Play();
-                CorrectAnswerPicture.Visible = true;
-                Correct.Visible = true;
-                ChangeAward();
-                SetQuestion();
+                if(!isMute)
+                {
+                    player = new SoundPlayer(@"sound\true.wav");
+                    player.Play();
+                }
                 if(currentQuestion == 15)
                 {
-                    player = new SoundPlayer(@"sound\winner.wav");
-                    player.Play();
+                    if (!isMute)
+                    {
+                        player = new SoundPlayer(@"sound\winner.wav");
+                        player.Play();
+                    }
                     MessageBox.Show($"Победа, ты выиграл {labels[currentQuestion - 1].Text}");
                     currentQuestion = 0;
                     ChangeAward();
                     usedQuestion.Clear();
                     SetQuestion();
+                    return; 
                 }
+                CorrectAnswerPicture.Visible = true;
+                Correct.Visible = true;
+                ChangeAward();
+                SetQuestion();
             }
             else
             {
-                SoundPlayer player = new SoundPlayer(@"sound\false.wav");
-                player.Play();
+                if (!isMute)
+                {
+                    player = new SoundPlayer(@"sound\false.wav");
+                    player.Play();
+                }
                 MessageBox.Show("Ты проиграл");
                 labels[currentQuestion - 1].BackColor = Color.Black;
                 currentQuestion = 0;
@@ -252,23 +266,26 @@ namespace Who_want_to_become_millionaire
                 {
                     buttons[i].Visible = true;
                 }
-                button50_50.Image = Properties.Resources._1;
+                button50_50.Image = new Bitmap(@"Image\1.jpg"); ;
             }
             if(isCalledFriend)
             {
                 isCalledFriend = false;
                 FriendImage.Visible = false;
                 FriendAnswerLabel.Visible = false;
-                callFriendButton.Image = Properties.Resources._2;
+                callFriendButton.Image = new Bitmap(@"Image\2.jpg"); ;
             }
             if(isAudienceHelp)
             {
                 AudienceHelpBox.Visible = false;
                 isAudienceHelp = false;
-                audienceHelpButton.Image = Properties.Resources._3;
+                audienceHelpButton.Image = new Bitmap(@"Image\3.jpg"); ;
             }
-            SoundPlayer player = new SoundPlayer(@"sound\summa.wav");
-            player.Play();
+            if (!isMute)
+            {
+                player = new SoundPlayer(@"sound\summa.wav");
+                player.Play();
+            }
             SetQuestion();
         }
 
@@ -332,9 +349,12 @@ namespace Who_want_to_become_millionaire
                     }
                 }
                 isButton50_50 = true;
-                SoundPlayer player = new SoundPlayer(@"sound\gong.wav");
-                player.Play();
-                button50_50.Image = Properties.Resources._4;
+                if (!isMute)
+                {
+                    player = new SoundPlayer(@"sound\gong.wav");
+                    player.Play();
+                }
+                button50_50.Image = new Bitmap(@"Image\4.jpg");
             }
         }
 
@@ -357,7 +377,7 @@ namespace Who_want_to_become_millionaire
                         indexCorrectAnswer = i;
                     }
                 }
-                panelSize[indexCorrectAnswer] = random.Next(50, 75);
+                panelSize[indexCorrectAnswer] = random.Next(60, 75);
                 currentSize += panelSize[indexCorrectAnswer];
                 for (int i = 0; i < panelSize.Length; i++)
                 {
@@ -372,10 +392,13 @@ namespace Who_want_to_become_millionaire
                     panels[i].Size = new Size(panelSize[i], 19);
                 }
                 AudienceHelpBox.Visible = true;
-                audienceHelpButton.Image = Properties.Resources._6;
+                audienceHelpButton.Image = new Bitmap(@"Image\6.jpg"); ;
                 isAudienceHelp = true;
-                SoundPlayer player = new SoundPlayer(@"sound\zal.wav");
-                player.Play();
+                if (!isMute)
+                {
+                    player = new SoundPlayer(@"sound\zal.wav");
+                    player.Play();
+                }
             }
         }
 
@@ -386,10 +409,14 @@ namespace Who_want_to_become_millionaire
                 FriendImage.Visible = true;
                 FriendAnswerLabel.Visible = true;
                 FriendAnswerLabel.Text = "Я думаю это " + CorrectAnswer;
-                callFriendButton.Image = Properties.Resources._5;
+                callFriendButton.Image = new Bitmap(@"Image\5.jpg"); ;
                 isCalledFriend = true;
-                SoundPlayer player = new SoundPlayer(@"sound\zvonok.wav");
-                player.Play();
+
+                if (!isMute)
+                {
+                    player = new SoundPlayer(@"sound\zvonok.wav");
+                    player.Play();
+                }
             }
         }
 
@@ -415,6 +442,24 @@ namespace Who_want_to_become_millionaire
             deleteQuestionForm.ShowDialog();
         }
 
+
+        private void MuteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(isMute)
+            {
+                isMute = false;
+            }
+            else
+            {
+                isMute = true;
+                player.Stop();
+            }
+        }
+
+        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This game created by Zhurzher Oleksandr", "Info");
+        }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             FileStream fileStream = new FileStream("questions.xml", FileMode.Create);
